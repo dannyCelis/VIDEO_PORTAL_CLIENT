@@ -1,0 +1,22 @@
+<div class="onLoad">
+    <video-nav></video-nav>
+    <h1>Video List</h1>
+    <div class="row" (scrolled)="onScroll()">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 box-list" *ngFor="let video of lstVideos">
+            <a [routerLink]="['/video-detail',video._id]">
+                <h5 title="{{video.name}}">{{video.name}}</h5>
+            </a>
+            <video src="../{{video.url}}" class="video-list"></video>
+            <div class="star-rating-avg">
+                <span [ngClass]="{'star-rating-avg-put': video.avgRating>=1}">&#9733;</span>
+                <span [ngClass]="{'star-rating-avg-put': video.avgRating>=2}">&#9733;</span>
+                <span [ngClass]="{'star-rating-avg-put': video.avgRating>=3}">&#9733;</span>
+                <span [ngClass]="{'star-rating-avg-put': video.avgRating>=4}">&#9733;</span>
+                <span [ngClass]="{'star-rating-avg-put': video.avgRating==5}">&#9733;</span>
+            </div>
+            <p>
+                {{video.description}}
+            </p>
+        </div>
+    </div>
+</div>

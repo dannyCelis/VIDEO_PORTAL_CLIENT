@@ -1,0 +1,15 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-toggle collapsed" (click)="logOut()">Salir</a>
+            <a class="navbar-brand" [routerLink]="['/video-list']">
+                <img src="https://app.crossover.com/x/images/3d30c71a.logo.svg" height="25" />
+            </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active" style="cursor:pointer;"><a (click)="logOut()">Salir <span class="sr-only">(current)</span></a></li>
+            </ul>
+        </div>
+    </div>
+</nav>

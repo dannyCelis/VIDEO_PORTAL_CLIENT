@@ -1,0 +1,21 @@
+<form #loginForm="ngForm" (ngSubmit)="logIn()">
+    <div class="form-signin">
+        <div class="text-center">
+            <div id="msg">{{msgError}}</div>
+            <h2 class="logo-name"><span>Cross</span>over</h2>
+        </div>
+        <div class="control-group">
+            <label for="username" class="sr-only">Username</label>
+            <input type="text" name="username" #username="ngModel" [(ngModel)]="objLogin.username" class="form-control" placeholder="Username"
+                autofocus required />
+        </div>
+        <div class="control-group">
+            <label for="password" class="sr-only">Password</label>
+            <input type="password" name="password" #username="ngModel" [(ngModel)]="objLogin.password" class="form-control" placeholder="Password"
+                required />
+        </div>
+        <div class="control-group">
+            <input class="btn btn-lg btn-primary btn-block" id="btn-log" type="submit" value="Ingresar" />
+        </div>
+    </div>
+</form>

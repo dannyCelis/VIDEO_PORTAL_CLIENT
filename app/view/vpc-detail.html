@@ -1,0 +1,78 @@
+<video-nav></video-nav>
+<h1>Video detail</h1>
+<div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+    <div class="container-fluid">
+        <div class="row">
+            <h4>{{objVideo.name}}</h4>
+            <video src="{{objVideo.url}}" controls class="video-detail"></video>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 box-1 top-bottom">
+                <div class="star-rating-detail" *ngIf="objVideo.status">
+                    <a (click)="rateVideo(objVideo._id,1)" [ngClass]="{'star-rating-detail-put': objVideo.myRating>=1}">&#9733;</a>
+                    <a (click)="rateVideo(objVideo._id,2)" [ngClass]="{'star-rating-detail-put': objVideo.myRating>=2}">&#9733;</a>
+                    <a (click)="rateVideo(objVideo._id,3)" [ngClass]="{'star-rating-detail-put': objVideo.myRating>=3}">&#9733;</a>
+                    <a (click)="rateVideo(objVideo._id,4)" [ngClass]="{'star-rating-detail-put': objVideo.myRating>=4}">&#9733;</a>
+                    <a (click)="rateVideo(objVideo._id,5)" [ngClass]="{'star-rating-detail-put': objVideo.myRating==5}">&#9733;</a>
+                </div>
+                <div class="star-rating-detail" *ngIf="!objVideo.status">
+                    <span (click)="rateVideo(objVideo._id,1)" [ngClass]="{'star-rating-detail-put': objVideo.myRating>=1}">&#9733;</span>
+                    <span (click)="rateVideo(objVideo._id,2)" [ngClass]="{'star-rating-detail-put': objVideo.myRating>=2}">&#9733;</span>
+                    <span (click)="rateVideo(objVideo._id,3)" [ngClass]="{'star-rating-detail-put': objVideo.myRating>=3}">&#9733;</span>
+                    <span (click)="rateVideo(objVideo._id,4)" [ngClass]="{'star-rating-detail-put': objVideo.myRating>=4}">&#9733;</span>
+                    <span (click)="rateVideo(objVideo._id,5)" [ngClass]="{'star-rating-detail-put': objVideo.myRating==5}">&#9733;</span>
+                </div>
+                <p><b>Description:</b></p>
+                <p>
+                    {{objVideo.description}}<br />
+                </p>
+            </div>
+        </div>
+        <div class="row visible-xs">
+            <!--div class="col-xs-12"-->
+                <!--h2>Otros videos</h2-->
+                <div *ngFor="let video of lstVideos">
+                    <div class="col-xs-12 box-1 top-bottom" *ngIf="video._id!=objVideo._id">
+                        <a [routerLink]="['/video-detail',video._id]" (click)="openVideoDetail(video._id)" style="margin-bottom: -12px;">
+                            <h5>{{video.name}}</h5>
+                        </a>
+                        <video src="{{video.url}}" class="video-list"></video>
+                        <hr style="margin:0px;" />
+                        <div class="star-rating-avg">
+                            <span [ngClass]="{'star-rating-avg-put': video.avgRating>=1}">&#9733;</span>
+                            <span [ngClass]="{'star-rating-avg-put': video.avgRating>=2}">&#9733;</span>
+                            <span [ngClass]="{'star-rating-avg-put': video.avgRating>=3}">&#9733;</span>
+                            <span [ngClass]="{'star-rating-avg-put': video.avgRating>=4}">&#9733;</span>
+                            <span [ngClass]="{'star-rating-avg-put': video.avgRating==5}">&#9733;</span>
+                        </div>
+                        <p>
+                            {{video.description}}
+                        </p>
+                    </div>
+                </div>
+            <!--/div-->
+        </div>
+    </div>
+</div>
+<div class="col-lg-3 visible-lg">
+    <!--h2>Otros videos</h2-->
+    <div *ngFor="let video of lstVideos">
+        <div class="col-xs-12 box-1 top-bottom" *ngIf="video._id!=objVideo._id">
+            <a [routerLink]="['/video-detail',video._id]" (click)="openVideoDetail(video._id)" style="margin-bottom: -12px;">
+                <h5>{{video.name}}</h5>
+            </a>
+            <video src="{{video.url}}" class="video-list"></video>
+            <hr style="margin:0px;" />
+            <div class="star-rating-avg">
+                <span [ngClass]="{'star-rating-avg-put': video.avgRating>=1}">&#9733;</span>
+                <span [ngClass]="{'star-rating-avg-put': video.avgRating>=2}">&#9733;</span>
+                <span [ngClass]="{'star-rating-avg-put': video.avgRating>=3}">&#9733;</span>
+                <span [ngClass]="{'star-rating-avg-put': video.avgRating>=4}">&#9733;</span>
+                <span [ngClass]="{'star-rating-avg-put': video.avgRating==5}">&#9733;</span>
+            </div>
+            <p>
+                {{video.description}}
+            </p>
+        </div>
+    </div>
+</div>
